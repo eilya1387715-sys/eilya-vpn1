@@ -1,511 +1,150 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>فروش VPN پرسرعت | EILYA VPN</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <title>ثبت سفارش</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700&display=swap');
-
-    :root {
-      --bg: #020617;
-      --card: rgba(15,23,42,0.9);
-      --accent: #6366f1;
-      --accent2: #ec4899;
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      font-family: 'Vazirmatn', sans-serif;
-      background: radial-gradient(circle at top, #1d2448 0, #020617 45%, #000 100%);
-      color: var(--text-main);
-      overflow-x: hidden;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(14px);
-      background: rgba(15,23,42,0.8);
-      border-bottom: 1px solid rgba(148,163,184,0.2);
-      padding: 10px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-weight: 700;
-      letter-spacing: 2px;
-      font-size: 1rem;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      margin-left: 12px;
-      font-size: 0.85rem;
-    }
-
-    nav a:hover {
-      color: #fff;
-    }
-
-    .hero {
-      padding: 40px 20px 60px;
-      display: grid;
-      grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
-      gap: 20px;
-      align-items: center;
-    }
-
-    .hero-text h1 {
-      font-size: 2.1rem;
-      margin-bottom: 10px;
-    }
-
-    .hero-text h1 span {
-      background: linear-gradient(135deg,var(--accent),var(--accent2));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-text p {
-      font-size: 0.95rem;
-      line-height: 1.9;
-      color: var(--text-muted);
-      max-width: 460px;
-    }
-
-    .hero-badges {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.75rem;
-    }
-
-    .badge {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.4);
-      color: #cbd5f5;
-    }
-
-    .btn-row {
-      margin-top: 22px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .btn {
-      border: none;
-      border-radius: 999px;
-      padding: 10px 18px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg,var(--accent),var(--accent2));
-      color: #fff;
-      box-shadow: 0 0 18px rgba(99,102,241,0.5);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px) scale(1.01);
-      box-shadow: 0 0 24px rgba(99,102,241,0.7);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      border: 1px solid rgba(148,163,184,0.5);
-      color: var(--text-main);
-    }
-
-    .hero-note {
-      margin-top: 10px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .orb {
-      width: 210px;
-      height: 210px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 20%, #fff 0, #6366f1 25%, #0f172a 70%);
-      box-shadow:
-        0 0 40px rgba(99,102,241,0.8),
-        0 0 90px rgba(15,23,42,1);
-      animation: float 4s ease-in-out infinite;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .orb-inner {
-      position: absolute;
-      inset: 18px;
-      border-radius: 50%;
-      border: 1px solid rgba(15,23,42,0.6);
-      backdrop-filter: blur(6px);
-    }
-
-    .orb-text {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 0.85rem;
-    }
-
-    .orb-text strong {
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-
-    .orb-tag {
-      margin-top: 6px;
-      font-size: 0.7rem;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.7);
-      border: 1px solid rgba(148,163,184,0.5);
-    }
-
-    .glow-ring {
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      border: 1px dashed rgba(148,163,184,0.4);
-      animation: spin 18s linear infinite;
-    }
-
-    .glow-dot {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #22c55e;
-      top: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      box-shadow: 0 0 14px rgba(34,197,94,0.9);
-    }
-
-    .section {
-      padding: 30px 20px 10px;
-    }
-
-    .section h2 {
-      font-size: 1.4rem;
-      margin-bottom: 6px;
-    }
-
-    .section-sub {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 18px;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-      gap: 14px;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 14px 14px 16px;
-      border: 1px solid rgba(148,163,184,0.25);
-      box-shadow: 0 18px 40px rgba(15,23,42,0.7);
-      font-size: 0.85rem;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(129,140,248,0.8);
-      box-shadow: 0 22px 50px rgba(30,64,175,0.9);
-    }
-
-    .card-title {
-      font-weight: 600;
-      margin-bottom: 6px;
-      font-size: 0.95rem;
-    }
-
-    .card-tag {
-      font-size: 0.7rem;
-      color: #a5b4fc;
-      margin-bottom: 4px;
-    }
-
-    .pricing {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-      gap: 14px;
-      margin-top: 10px;
-    }
-
-    .price-card {
-      background: radial-gradient(circle at top, rgba(79,70,229,0.4), rgba(15,23,42,0.95));
-      border-radius: 18px;
-      padding: 16px 16px 18px;
-      border: 1px solid rgba(129,140,248,0.7);
-      box-shadow: 0 20px 50px rgba(30,64,175,0.9);
-      font-size: 0.85rem;
-    }
-
-    .price-name {
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .price-value {
-      font-size: 1.2rem;
-      margin: 6px 0;
-    }
-
-    .price-note {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .price-list {
-      list-style: none;
       padding: 0;
-      margin: 0 0 10px;
-      font-size: 0.8rem;
+      background: #050816;
+      color: #e5e7eb;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      padding-top: 40px;
     }
-
-    .price-list li::before {
-      content: "• ";
-      color: #22c55e;
-    }
-
-    .price-cta {
+    .box {
       width: 100%;
-      margin-top: 6px;
+      max-width: 420px;
+      background: #0f172a;
+      padding: 25px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
     }
-
-    footer {
-      padding: 20px;
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      border-top: 1px solid rgba(148,163,184,0.3);
-      margin-top: 30px;
+    label {
+      font-size: 14px;
+      margin-bottom: 6px;
+      display: block;
     }
-
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #1e293b;
+      background: #020617;
+      color: #fff;
+      margin-bottom: 14px;
+      outline: none;
     }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    input:focus {
+      border-color: #6366f1;
     }
-
-    @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: minmax(0,1fr);
-        padding-top: 26px;
-      }
-      .hero-visual {
-        order: -1;
-        margin-bottom: 10px;
-      }
-      .hero-text h1 {
-        font-size: 1.7rem;
-      }
+    .telegram-field {
+      position: relative;
+    }
+    .telegram-field input {
+      padding-right: 40px;
+    }
+    .telegram-field img {
+      width: 20px;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.9;
+      animation: floatIcon 2.6s ease-in-out infinite;
+    }
+    @keyframes floatIcon {
+      0% { transform: translateY(-50%) translateX(0); }
+      50% { transform: translateY(-50%) translateX(-3px); }
+      100% { transform: translateY(-50%) translateX(0); }
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #6366f1;
+      color: #fff;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+    .pay-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: #1e293b;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+    .highlight {
+      color: #818cf8;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="logo"><span>EILYA</span> VPN</div>
-  <nav>
-    <a href="#features">مزایا</a>
-    <a href="#pricing">پلن‌ها</a>
-    <a href="#contact">ارتباط</a>
-  </nav>
-</header>
+  <div class="box">
 
-<section class="hero">
-  <div class="hero-text">
-    <h1>VPN پرسرعت و پایدار از <span>EILYA</span>.</h1>
-    <p>
-      اتصال پایدار، سرورهای متنوع، سرعت بالا. مناسب استفاده روزمره، کار، استریم و مرور امن.
-      بدون پیچیدگی، فقط وصل شو و استفاده کن.
-    </p>
+    <label>نام و نام خانوادگی</label>
+    <input id="name" type="text" placeholder="مثال: سید ایلیا حقیقی">
 
-    <div class="hero-badges">
-      <div class="badge">سرورهای متعدد</div>
-      <div class="badge">پشتیبانی انسانی</div>
-      <div class="badge">اتصال پایدار</div>
+    <label>شماره تماسی که تلگرام روی آن فعال است</label>
+    <div class="telegram-field">
+      <input id="phone" type="text" placeholder="مثال: 0912xxxxxxx">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
     </div>
 
-    <div class="btn-row">
-      <button class="btn btn-primary" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">
-        مشاهده پلن‌ها
-      </button>
-      <button class="btn btn-ghost" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">
-        دیدن مزایا
-      </button>
+    <button onclick="sendOrder()">ثبت سفارش</button>
+
+    <div class="pay-box">
+      💳 پرداخت کارت‌به‌کارت<br>
+      شماره کارت:
+      <span class="highlight">6063-7311-0327-2259</span><br>
+      به نام:
+      <span class="highlight">سید ایلیا حقیقی</span><br>
+      پس از پرداخت، رسید را ارسال کنید:
+      <span class="highlight">@MrEilyaq</span>
     </div>
 
-    <div class="hero-note">
-      پرداخت و تحویل اکانت می‌تواند به‌صورت دستی (چت، تلگرام، واتساپ) انجام شود.
-    </div>
   </div>
 
-  <div class="hero-visual">
-    <div class="glow-ring">
-      <div class="glow-dot"></div>
-    </div>
-    <div class="orb">
-      <div class="orb-inner"></div>
-      <div class="orb-text">
-        <strong>Secure Tunnel</strong>
-        <div>Stable • Fast • Simple</div>
-        <div class="orb-tag">EILYA VPN</div>
-      </div>
-    </div>
-  </div>
-</section>
+<script>
+function sendOrder() {
 
-<section id="features" class="section">
-  <h2>چرا EILYA VPN؟</h2>
-  <div class="section-sub">
-    چند ویژگی مهم که تجربه استفاده را راحت‌تر و پایدارتر می‌کند.
-  </div>
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
 
-  <div class="features">
-    <div class="card">
-      <div class="card-tag">سرعت</div>
-      <div class="card-title">سرعت مناسب برای استفاده روزمره</div>
-      <div>
-        مناسب وب‌گردی، شبکه‌های اجتماعی و استریم سبک. بدون تنظیمات پیچیده، فقط وصل شو و استفاده کن.
-      </div>
-    </div>
+  if (!name || !phone) {
+    alert("لطفاً همه فیلدها را پر کنید");
+    return;
+  }
 
-    <div class="card">
-      <div class="card-tag">پایداری</div>
-      <div class="card-title">اتصال پایدار</div>
-      <div>
-        تمرکز روی اتصال پایدار و قابل اعتماد. مناسب استفاده طولانی‌مدت در طول روز.
-      </div>
-    </div>
+  const message = 
+`📩 سفارش جدید:
 
-    <div class="card">
-      <div class="card-tag">پشتیبانی</div>
-      <div class="card-title">ارتباط مستقیم</div>
-      <div>
-        در صورت نیاز، می‌توانی از طریق پیام (مثلاً تلگرام یا واتساپ) برای راهنمایی و پشتیبانی در ارتباط باشی.
-      </div>
-    </div>
-  </div>
-</section>
+👤 نام: ${name}
+📱 شماره: ${phone}
+`;
 
-<section id="pricing" class="section">
-  <h2>پلن‌های پیشنهادی</h2>
-  <div class="section-sub">
-    قیمت‌ها نمونه هستند؛ می‌توانی بعداً بر اساس شرایط خودت تغییرشان بدهی.
-  </div>
+  const token = "TOKEN_HERE";      // ← توکن ربات را اینجا بگذار
+  const chatId = "CHAT_ID_HERE";   // ← چت‌آیدی خودت را اینجا بگذار
 
-  <div class="pricing">
-    <div class="price-card">
-      <div class="price-name">پلن یک‌ماهه</div>
-      <div class="price-value">مثلاً ۱۰۰ واحد</div>
-      <div class="price-note">مناسب تست و استفاده کوتاه‌مدت.</div>
-      <ul class="price-list">
-        <li>دسترسی به سرورهای اصلی</li>
-        <li>پشتیبانی در طول دوره</li>
-      </ul>
-      <button class="btn btn-primary price-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        درخواست این پلن
-      </button>
-    </div>
-
-    <div class="price-card">
-      <div class="price-name">پلن سه‌ماهه</div>
-      <div class="price-value">مثلاً ۲۵۰ واحد</div>
-      <div class="price-note">مقرون‌به‌صرفه‌تر برای استفاده مداوم.</div>
-      <ul class="price-list">
-        <li>دسترسی پایدارتر</li>
-        <li>اولویت در پاسخ‌گویی</li>
-      </ul>
-      <button class="btn btn-primary price-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        درخواست این پلن
-      </button>
-    </div>
-
-    <div class="price-card">
-      <div class="price-name">پلن بلندمدت</div>
-      <div class="price-value">مثلاً ۶ ماهه / ۱۲ ماهه</div>
-      <div class="price-note">برای کسانی که استفاده دائمی دارند.</div>
-      <ul class="price-list">
-        <li>شرایط ویژه</li>
-        <li>امکان هماهنگی شخصی</li>
-      </ul>
-      <button class="btn btn-primary price-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        هماهنگی برای این پلن
-      </button>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="section">
-  <h2>ارتباط برای خرید</h2>
-  <div class="section-sub">
-    این بخش را می‌توانی با لینک‌های واقعی خودت جایگزین کنی.
-  </div>
-
-  <div class="card">
-    <div class="card-title">راه‌های ارتباطی (نمونه)</div>
-    <div style="font-size:0.85rem; line-height:1.9;">
-      - تلگرام: <span style="color:#a5b4fc;">@YourTelegram</span><br>
-      - واتساپ: <span style="color:#a5b4fc;">شماره یا لینک واتساپ</span><br>
-      - ایمیل: <span style="color:#a5b4fc;">you@example.com</span>
-    </div>
-    <div style="margin-top:10px; font-size:0.8rem; color:var(--text-muted);">
-      می‌توانی این متن‌ها را با اطلاعات واقعی خودت عوض کنی.
-    </div>
-  </div>
-</section>
-
-<footer>
-  EILYA VPN – این صفحه فقط یک نمونهٔ نمایشی برای معرفی و فروش سرویس است.
-</footer>
+  fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: message
+    })
+  })
+  .then(() => alert("سفارش ارسال شد"))
+  .catch(() => alert("خطا در ارسال"));
+}
+</script>
 
 </body>
 </html>
