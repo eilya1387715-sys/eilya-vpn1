@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>پنل VPN یک‌ماهه | EILYA VPN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700&display=swap');
 
@@ -324,7 +325,6 @@
     }
   </style>
 </head>
-
 <body>
 
 <header>
@@ -439,6 +439,28 @@
 
     <button class="btn btn-primary" onclick="sendOrder()">ارسال سفارش</button>
   </div>
+
+  <!-- منوی پرداخت -->
+  <div class="card" style="margin-top:14px;">
+    <div class="card-title">پرداخت</div>
+
+    <div style="font-size:0.85rem; line-height:1.9;">
+      💳 <strong>پرداخت کارت‌به‌کارت</strong><br>
+      شماره کارت:
+      <span style="color:#a5b4fc; font-weight:600;">6063-7311-0327-2259</span><br>
+      به نام:
+      <span style="color:#a5b4fc;">سید ایلیا حقیقی</span><br>
+      مبلغ قابل پرداخت:
+      <span style="color:#22c55e; font-weight:600;">۱۷۰,۰۰۰ تومان</span>
+    </div>
+
+    <a href="https://t.me/MrEilyaq"
+       class="btn btn-primary"
+       style="text-align:center; display:block; margin-top:12px;">
+      ارسال رسید پرداخت
+    </a>
+  </div>
+
 </section>
 
 <footer>
@@ -448,7 +470,6 @@
 <a href="https://t.me/MrEilyaq" class="tg-float">
   <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
 </a>
-
 <script>
 function sendOrder() {
   const name = document.getElementById("name").value.trim();
@@ -465,11 +486,13 @@ function sendOrder() {
 👤 نام: ${name}
 📱 شماره: ${phone}
 🕒 پلن: یک‌ماهه تک‌کاربره
-💰 قیمت: ۱۷۰
+💰 مبلغ: ۱۷۰,۰۰۰ تومان
 `;
 
-  const token = "8465073946:AAEBASLoOFepjvBM68ZoQ6Q_D9iFOYrMXmY";     
-  const chatId = "7207876434";  
+  /* 🔥🔥🔥 اینجا دقیقاً جای توکن و چت‌آیدی توست 🔥🔥🔥 */
+  const token = "8465073946:AAEBASLoOFepjvBM68ZoQ6Q_D9iFOYrMXmY";     // ← توکن رباتت
+  const chatId = "7207876434";  // ← چت‌آیدی خودت
+  /* 🔥🔥🔥 همین دو تا رو عوض کن 🔥🔥🔥 */
 
   fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: "POST",
@@ -483,15 +506,13 @@ function sendOrder() {
     if (response.ok) {
       alert("✔️ سفارش با موفقیت ارسال شد");
     } else {
-      alert("❌ خطا در ارسال");
+      alert("❌ خطا در ارسال پیام");
     }
   })
   .catch(() => {
-    alert("❌ خطا در ارسال");
+    alert("❌ خطا در ارسال پیام");
   });
 }
 </script>
-
 </body>
 </html>
-``
